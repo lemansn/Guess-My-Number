@@ -1,9 +1,9 @@
 import { Text, View, StyleSheet, Alert, FlatList } from "react-native";
-import Title from "../components/Title";
+import Title from "../components/ui/Title";
 import { useState, useEffect } from "react";
 import NumberContainer from "../components/game/NumberContainer";
 import Card from "../components/ui/Card";
-import Buttons from "../components/Buttons";
+import Buttons from "../components/ui/Buttons";
 import InstructionText from "../components/ui/InstructionText";
 import { Ionicons } from '@expo/vector-icons';
 import GUessLogItem from "../components/game/GuessLogItem";
@@ -145,6 +145,7 @@ const styles = StyleSheet.create({
         marginTop: 16,
         padding: 24,
         flex: 1,
+        alignItems:'center',
     },
 
 

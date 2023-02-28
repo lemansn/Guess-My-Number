@@ -1,7 +1,7 @@
-import { Text, View, Image, StyleSheet } from "react-native";
-import { Colors } from "react-native/Libraries/NewAppScreen";
-import Buttons from "../components/Buttons";
-import Title from "../components/Title";
+import { Text, View, Image, StyleSheet ,Dimensions} from "react-native";
+// import { Colors } from "react-native/Libraries/NewAppScreen";
+import Buttons from "../components/ui/Buttons";
+import Title from "../components/ui/Title";
 
 function GameOverScreen({roundNumber,usernumber, onstartGame}) {
 
@@ -46,6 +46,7 @@ function GameOverScreen({roundNumber,usernumber, onstartGame}) {
 
 
 export default GameOverScreen;
+const dimensionWitdh = Dimensions.get('window').width;
 
 
 const styles = StyleSheet.create({
@@ -68,9 +69,9 @@ const styles = StyleSheet.create({
 
     imageStyle: {
 
-        width: 300,
-        height: 300,
-        borderRadius: 150,
+        width: dimensionWitdh < 380 ? 150 : 300,
+        height: dimensionWitdh < 380 ? 150 : 300,
+        borderRadius: dimensionWitdh < 380 ? 75 : 150,
         borderWidth: 3,
         overflow: 'hidden',
         margin: 36,

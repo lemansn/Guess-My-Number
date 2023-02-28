@@ -1,4 +1,3 @@
-
 import { View, Text, Pressable, StyleSheet } from "react-native";
 function Buttons({ children ,onPress}) {
 

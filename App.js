@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { StyleSheet, ImageBackground,SafeAreaView } from 'react-native';
+import { StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
 import StartGameScreen from './screens/StartGameScreen';
 import { LinearGradient } from 'expo-linear-gradient'
 import GameScreen from './screens/GameScreen';
 import GameOverScreen from './screens/GameOverScreen';
-import {useFonts} from 'expo-font';
-import  AppLoading from 'expo-app-loading';
+import { useFonts } from 'expo-font';
+import AppLoading from 'expo-app-loading';
 
 export default function App() {
 
@@ -14,19 +14,19 @@ export default function App() {
   const [chosenNumber, setChosenNumber] = useState();
   const [roundsNumber, setRoundsNumber] = useState(0);
 
-const [fonstsLoaded] = useFonts({
+  const [fonstsLoaded] = useFonts({
 
 
-  'open-sans': require('./assets/fonst/OpenSans-Regular.ttf'),
+    'open-sans': require('./assets/fonst/OpenSans-Regular.ttf'),
 
-  'open-sans-bold': require('./assets/fonst/OpenSans-Bold.ttf')
+    'open-sans-bold': require('./assets/fonst/OpenSans-Bold.ttf')
 
-});
+  });
 
 
-if(!fonstsLoaded){
-  return <AppLoading />;
-}
+  if (!fonstsLoaded) {
+    return <AppLoading />;
+  }
 
   function pickedNumberHandler(pickedNumber) {
 
@@ -35,12 +35,12 @@ if(!fonstsLoaded){
   }
 
 
-  function gameOverHandler(numberOfRounds){
+  function gameOverHandler(numberOfRounds) {
     setGameOver(true);
     setRoundsNumber(numberOfRounds);
   }
 
-  function newGameStart(){
+  function newGameStart() {
 
 
     setChosenNumber(null);
@@ -51,11 +51,11 @@ if(!fonstsLoaded){
   let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />
 
   if (chosenNumber) {
-    screen = <GameScreen userNumber={chosenNumber} onGameOver = {gameOverHandler}/>
+    screen = <GameScreen userNumber={chosenNumber} onGameOver={gameOverHandler} />
   }
 
-  if(gameOver && chosenNumber){
-    screen = < GameOverScreen roundNumber={roundsNumber} usernumber={chosenNumber} onstartGame={newGameStart}/>
+  if (gameOver && chosenNumber) {
+    screen = < GameOverScreen roundNumber={roundsNumber} usernumber={chosenNumber} onstartGame={newGameStart} />
   }
 
   return <LinearGradient colors={['#4e0329', '#ddb52f']} style={styles.rootScreen}>
@@ -67,9 +67,9 @@ if(!fonstsLoaded){
       imageStyle={styles.backgroundImage}
     >
 
-    <SafeAreaView style={styles.rootScreen}>
+      <SafeAreaView style={styles.rootScreen}>
 
-      {screen}
+        {screen}
       </SafeAreaView>
     </ImageBackground>
   </LinearGradient>
